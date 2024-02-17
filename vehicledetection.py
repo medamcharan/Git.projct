@@ -2,16 +2,15 @@
 import cv2
 import numpy as np
  
-min_contour_width = 17 
+min_contour_width = 17
 min_contour_height = 17
-offset = 0.5 
-line_height = 200  
+offset = 0.5
+line_height = 300
 matches = []
 cars = 0
 def get_centrolid(x, y, w, h):
    x1 = int(w / 2)
    y1 = int(h / 2)
- 
    cx = x + x1
    cy = y + y1
    return cx, cy
@@ -61,7 +60,7 @@ while ret:
                matches.remove((x, y))
                # print(cars)
  
-   cv2.putText(frame1, "Total 4 wheel vehicles: " + str(cars), (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1,(0, 170, 0), 2)
+   cv2.putText(frame1, "Total no of Cars : " + str(cars), (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1,(0, 170, 0), 2)
    cv2.imshow("Vehicle Detection", frame1)
    #cv2.imshow("Difference" , th)
    if cv2.waitKey(1) == 27:
